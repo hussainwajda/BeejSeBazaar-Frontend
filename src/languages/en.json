@@ -1,0 +1,126 @@
+{
+  "app": {
+    "title": "BeejSeBazaar",
+    "welcome": "Welcome to BeejSeBazaar"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "soil_health": "Soil Health",
+    "weather": "Weather",
+    "pest_disease": "Pest & Disease",
+    "market_prices": "Market Prices",
+    "feedback": "Feedback",
+    "home": "Home",
+    "market": "Market",
+    "advisory": "Advisory",
+    "profile": "Profile"
+  },
+  "header": {
+    "language": "Language",
+    "notifications": "Notifications",
+    "voice_assistant": "Voice Assistant"
+  },
+  "weather": {
+    "current_weather": "Current Weather",
+    "forecast": "Forecast",
+    "alerts": "Weather Alerts",
+    "temperature": "Temperature",
+    "humidity": "Humidity",
+    "rainfall": "Rainfall",
+    "wind_speed": "Wind Speed"
+  },
+  "soil_health": {
+    "title": "Soil Health",
+    "moisture": "Moisture",
+    "ph": "pH Level",
+    "temperature": "Temperature",
+    "nitrogen": "Nitrogen",
+    "phosphorus": "Phosphorus",
+    "potassium": "Potassium",
+    "good": "Good",
+    "warning": "Warning",
+    "critical": "Critical",
+    "last_updated": "Last Updated",
+    "recommendations": "Recommendations",
+    "irrigation_needed": "Irrigation needed",
+    "add_lime": "Add lime to reduce acidity",
+    "optimal_temperature": "Optimal temperature for crops",
+    "add_nitrogen": "Add nitrogen fertilizer",
+    "add_phosphorus": "Add phosphorus fertilizer",
+    "add_potassium": "Add potassium fertilizer"
+  },
+  "fertilizer": {
+    "title": "Fertilizer Guidance",
+    "select_crop": "Select Crop",
+    "recommendation": "Fertilizer Recommendation",
+    "type": "Type",
+    "amount": "Amount",
+    "timing": "Timing",
+    "method": "Method",
+    "download_plan": "Download Plan",
+    "crops": {
+      "wheat": "Wheat",
+      "rice": "Rice",
+      "corn": "Corn",
+      "cotton": "Cotton",
+      "sugarcane": "Sugarcane",
+      "vegetables": "Vegetables"
+    }
+  },
+  "pest_disease": {
+    "title": "Pest & Disease Detection",
+    "upload_image": "Upload Image",
+    "take_photo": "Take Photo",
+    "detect": "Detect",
+    "result": "Detection Result",
+    "no_pests": "No pests or diseases detected",
+    "pests_detected": "Pests detected",
+    "disease_detected": "Disease detected",
+    "treatment": "Treatment"
+  },
+  "market": {
+    "title": "Market Prices",
+    "crop": "Crop",
+    "price": "Price",
+    "unit": "Unit",
+    "trend": "Trend",
+    "up": "Up",
+    "down": "Down",
+    "stable": "Stable",
+    "last_updated": "Last Updated"
+  },
+  "alerts": {
+    "title": "Recent Alerts",
+    "no_alerts": "No recent alerts",
+    "weather_warning": "Weather Warning",
+    "soil_alert": "Soil Alert",
+    "pest_alert": "Pest Alert",
+    "market_alert": "Market Alert"
+  },
+  "feedback": {
+    "title": "Feedback",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Submit Feedback",
+    "thank_you": "Thank you for your feedback!"
+  },
+  "voice": {
+    "title": "Voice Assistant",
+    "listening": "Listening...",
+    "tap_to_speak": "Tap to speak",
+    "processing": "Processing...",
+    "error": "Could not understand. Please try again."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Retry",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "ok": "OK",
+    "yes": "Yes",
+    "no": "No"
+  }
+}

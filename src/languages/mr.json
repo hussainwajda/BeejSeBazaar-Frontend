@@ -1,0 +1,126 @@
+{
+  "app": {
+    "title": "बीजसे बाजार",
+    "welcome": "बीजसे बाजारमध्ये आपले स्वागत आहे"
+  },
+  "navigation": {
+    "dashboard": "डॅशबोर्ड",
+    "soil_health": "माती आरोग्य",
+    "weather": "हवामान",
+    "pest_disease": "किडी आणि रोग",
+    "market_prices": "बाजार किंमती",
+    "feedback": "प्रतिसाद",
+    "home": "होम",
+    "market": "बाजार",
+    "advisory": "सल्ला",
+    "profile": "प्रोफाइल"
+  },
+  "header": {
+    "language": "भाषा",
+    "notifications": "सूचना",
+    "voice_assistant": "व्हॉइस असिस्टंट"
+  },
+  "weather": {
+    "current_weather": "वर्तमान हवामान",
+    "forecast": "पूर्वानुमान",
+    "alerts": "हवामान चेतावनी",
+    "temperature": "तापमान",
+    "humidity": "आर्द्रता",
+    "rainfall": "पाऊस",
+    "wind_speed": "वाऱ्याची गती"
+  },
+  "soil_health": {
+    "title": "माती आरोग्य",
+    "moisture": "आर्द्रता",
+    "ph": "पीएच स्तर",
+    "temperature": "तापमान",
+    "nitrogen": "नायट्रोजन",
+    "phosphorus": "फॉस्फरस",
+    "potassium": "पोटॅशियम",
+    "good": "चांगले",
+    "warning": "चेतावनी",
+    "critical": "गंभीर",
+    "last_updated": "शेवटचे अपडेट",
+    "recommendations": "शिफारसी",
+    "irrigation_needed": "सिंचनाची आवश्यकता",
+    "add_lime": "आम्लता कमी करण्यासाठी चुना मिसळा",
+    "optimal_temperature": "पिकांसाठी इष्टतम तापमान",
+    "add_nitrogen": "नायट्रोजन खत टाका",
+    "add_phosphorus": "फॉस्फरस खत टाका",
+    "add_potassium": "पोटॅशियम खत टाका"
+  },
+  "fertilizer": {
+    "title": "खत मार्गदर्शन",
+    "select_crop": "पीक निवडा",
+    "recommendation": "खत शिफारस",
+    "type": "प्रकार",
+    "amount": "प्रमाण",
+    "timing": "वेळ",
+    "method": "पद्धत",
+    "download_plan": "योजना डाउनलोड करा",
+    "crops": {
+      "wheat": "गहू",
+      "rice": "तांदूळ",
+      "corn": "मका",
+      "cotton": "कापूस",
+      "sugarcane": "साखर",
+      "vegetables": "भाज्या"
+    }
+  },
+  "pest_disease": {
+    "title": "किडी आणि रोग शोधणे",
+    "upload_image": "प्रतिमा अपलोड करा",
+    "take_photo": "फोटो काढा",
+    "detect": "शोधा",
+    "result": "शोध परिणाम",
+    "no_pests": "कोणत्याही किडी किंवा रोगाचा शोध झाला नाही",
+    "pests_detected": "किडी आढळल्या",
+    "disease_detected": "रोगाचा शोध झाला",
+    "treatment": "उपचार"
+  },
+  "market": {
+    "title": "बाजार किंमती",
+    "crop": "पीक",
+    "price": "किंमत",
+    "unit": "एकक",
+    "trend": "कल",
+    "up": "वर",
+    "down": "खाली",
+    "stable": "स्थिर",
+    "last_updated": "शेवटचे अपडेट"
+  },
+  "alerts": {
+    "title": "अलीकडील चेतावन्या",
+    "no_alerts": "कोणत्याही अलीकडील चेतावनी नाहीत",
+    "weather_warning": "हवामान चेतावनी",
+    "soil_alert": "माती चेतावनी",
+    "pest_alert": "किडी चेतावनी",
+    "market_alert": "बाजार चेतावनी"
+  },
+  "feedback": {
+    "title": "प्रतिसाद",
+    "name": "नाव",
+    "email": "ईमेल",
+    "message": "संदेश",
+    "submit": "प्रतिसाद सबमिट करा",
+    "thank_you": "आपल्या प्रतिसादाबद्दल धन्यवाद!"
+  },
+  "voice": {
+    "title": "व्हॉइस असिस्टंट",
+    "listening": "ऐकत आहे...",
+    "tap_to_speak": "बोलण्यासाठी टॅप करा",
+    "processing": "प्रक्रिया करत आहे...",
+    "error": "समजले नाही. कृपया पुन्हा प्रयत्न करा."
+  },
+  "common": {
+    "loading": "लोड होत आहे...",
+    "error": "त्रुटी",
+    "retry": "पुन्हा प्रयत्न करा",
+    "close": "बंद करा",
+    "save": "जतन करा",
+    "cancel": "रद्द करा",
+    "ok": "ठीक आहे",
+    "yes": "होय",
+    "no": "नाही"
+  }
+}
