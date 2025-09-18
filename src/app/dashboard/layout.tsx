@@ -19,7 +19,17 @@ import {
 } from 'lucide-react';
 import LanguageSwitcher from '@/components/common/LanguageSwitcher';
 import VoiceAssistant from '@/components/dashboard/VoiceAssistant';
+import { Chatbot } from '@/components/dashboard/chatbot';
 import { useLanguage } from '@/hooks/useLanguage';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -79,9 +89,37 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                 3
               </Badge>
             </Button>
-            <Button variant="ghost" size="icon">
-              <User className="h-5 w-5" />
-            </Button>
+            <TooltipProvider>
+              <Tooltip>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <TooltipTrigger asChild>
+                      <Button variant="ghost" size="icon" aria-label="Profile menu">
+                        <User className="h-5 w-5" />
+                      </Button>
+                    </TooltipTrigger>
+                  </DropdownMenuTrigger>
+                  <TooltipContent side="bottom">Open profile menu</TooltipContent>
+                  <DropdownMenuContent align="end" className="w-56">
+                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem asChild>
+                      <Link href="#">Profile</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link href="#">Settings</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link href="/dashboard/eligible-schemes">Eligible Schemes</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem asChild>
+                      <button className="w-full text-left">Logout</button>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </Tooltip>
+            </TooltipProvider>
           </div>
         </div>
       </header>
@@ -112,6 +150,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
           ))}
         </div>
       </nav>
+      <Chatbot />
     </div>
   );
 }

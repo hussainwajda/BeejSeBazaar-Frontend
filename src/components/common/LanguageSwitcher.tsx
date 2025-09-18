@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Globe } from 'lucide-react';
@@ -17,8 +17,20 @@ const languages = [
 export default function LanguageSwitcher() {
   const { language, setLanguage } = useLanguage();
   const [open, setOpen] = useState(false);
+  const [currentCode, setCurrentCode] = useState(language);
 
-  const currentLanguage = languages.find(lang => lang.code === language) || languages[0];
+  useEffect(() => {
+    try {
+      const entry = typeof window !== 'undefined' ? localStorage.getItem('selectedLanguage') : null;
+      const legacy = typeof window !== 'undefined' ? localStorage.getItem('language') : null;
+      const init = entry || legacy || language;
+      setCurrentCode(init);
+    } catch {
+      setCurrentCode(language);
+    }
+  }, [language]);
+
+  const currentLanguage = languages.find(lang => lang.code === currentCode) || languages[0];
 
   return (
     <DropdownMenu open={open} onOpenChange={setOpen}>
@@ -35,17 +47,24 @@ export default function LanguageSwitcher() {
             key={lang.code}
             onClick={() => {
               setLanguage(lang.code);
+              try {
+                if (typeof window !== 'undefined') {
+                  localStorage.setItem('selectedLanguage', lang.code);
+                  localStorage.setItem('language', lang.code);
+                }
+              } catch {}
+              setCurrentCode(lang.code);
               setOpen(false);
             }}
             className={`flex items-center gap-3 ${
-              language === lang.code ? 'bg-green-50 text-green-800' : ''
+              currentCode === lang.code ? 'bg-green-50 text-green-800' : ''
             }`}
           >
             <div className="flex flex-col">
               <span className="font-medium">{lang.nativeName}</span>
               <span className="text-xs text-muted-foreground">{lang.name}</span>
             </div>
-            {language === lang.code && (
+            {currentCode === lang.code && (
               <div className="w-2 h-2 bg-green-600 rounded-full ml-auto" />
             )}
           </DropdownMenuItem>

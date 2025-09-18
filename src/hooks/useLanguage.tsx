@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useEffect, createContext, useContext } from 'react';
+import { apiClient } from '@/lib/api/client';
+import { API_ENDPOINTS } from '@/lib/api/endpoints';
 
 // Language context
 const LanguageContext = createContext<{
@@ -24,21 +26,62 @@ export function useLanguage() {
 
 // Language provider component
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguageState] = useState('en');
   const [translations, setTranslations] = useState<Record<string, any>>({});
 
+  // Hydrate language from localStorage once on mount. Prefer entry page key 'selectedLanguage'.
   useEffect(() => {
-    // Load translations for the current language
+    try {
+      if (typeof window !== 'undefined') {
+        const savedEntry = localStorage.getItem('selectedLanguage');
+        const savedLegacy = localStorage.getItem('language');
+        const initial = savedEntry || savedLegacy;
+        if (initial) {
+          setLanguageState(initial);
+        }
+      }
+    } catch {}
+  }, []);
+
+  // Wrap setter to keep both localStorage keys in sync
+  const setLanguage = (lang: string) => {
+    setLanguageState(lang);
+    try {
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('language', lang);
+        localStorage.setItem('selectedLanguage', lang);
+      }
+    } catch {}
+  };
+
+  useEffect(() => {
     const loadTranslations = async () => {
       try {
-        const response = await import(`@/languages/${language}.json`);
-        setTranslations(response.default);
+        // Always start from English base bundle
+        const base = (await import('@/languages/en.json')).default as Record<string, any>;
+
+        if (language === 'en') {
+          setTranslations(base);
+          try { if (typeof window !== 'undefined') { localStorage.setItem('language', language); localStorage.setItem('selectedLanguage', language); } } catch {}
+          return;
+        }
+
+        // Ask backend to translate base bundle into selected language
+        const translated = await apiClient.post<Record<string, any>>(API_ENDPOINTS.translate, {
+          to: language,
+          payload: base,
+        });
+        setTranslations(translated);
+        try { if (typeof window !== 'undefined') { localStorage.setItem('language', language); localStorage.setItem('selectedLanguage', language); } } catch {}
       } catch (error) {
-        console.error(`Failed to load translations for ${language}:`, error);
-        // Fallback to English
-        if (language !== 'en') {
-          const fallback = await import('@/languages/en.json');
-          setTranslations(fallback.default);
+        console.error(`Failed to load/translate bundle for ${language}:`, error);
+        // Fallback: try existing static file if present, else English
+        try {
+          const fallbackDyn = (await import(`@/languages/${language}.json`)).default as Record<string, any>;
+          setTranslations(fallbackDyn);
+        } catch {
+          const fallback = (await import('@/languages/en.json')).default as Record<string, any>;
+          setTranslations(fallback);
         }
       }
     };
